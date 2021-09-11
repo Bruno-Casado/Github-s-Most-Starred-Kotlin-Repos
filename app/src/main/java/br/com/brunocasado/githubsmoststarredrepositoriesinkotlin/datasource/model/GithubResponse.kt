@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class GithubResponse(
     @SerializedName("items")
-    val items: RepoModel
+    val items: List<RepoModel>
 )
