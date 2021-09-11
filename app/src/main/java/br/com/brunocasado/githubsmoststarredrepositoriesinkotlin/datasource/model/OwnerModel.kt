@@ -3,8 +3,8 @@ package br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.mod
 import com.google.gson.annotations.SerializedName
 
 data class OwnerModel(
-    @SerializedName("id")
-    val id: String,
+    @SerializedName("login")
+    val login: String,
     @SerializedName("avatar_url")
     val avatarUrl: String
 )

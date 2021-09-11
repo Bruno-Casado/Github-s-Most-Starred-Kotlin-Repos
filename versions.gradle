@@ -4,4 +4,5 @@ ext {
     okHttpVersion = '4.9.0'
     okHttpInterceptorVersion = '4.8.0'
     gsonVersion = '2.8.7'
+    roomVersion = '2.3.0'
 }

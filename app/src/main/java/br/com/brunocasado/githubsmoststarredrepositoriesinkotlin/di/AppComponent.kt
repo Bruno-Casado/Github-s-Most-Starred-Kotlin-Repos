@@ -3,6 +3,7 @@ package br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.di
 import android.app.Application
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.CustomApplication
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.di.module.ActivityModule
+import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.di.module.DatabaseModule
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.di.module.NetworkModule
 import dagger.BindsInstance
 import dagger.Component
@@ -14,7 +15,8 @@ import javax.inject.Singleton
     modules = [
         AndroidInjectionModule::class,
         ActivityModule::class,
-        NetworkModule::class
+        NetworkModule::class,
+        DatabaseModule::class
     ]
 )
 interface AppComponent {
