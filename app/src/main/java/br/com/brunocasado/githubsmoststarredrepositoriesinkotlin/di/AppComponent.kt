@@ -2,10 +2,7 @@ package br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.di
 
 import android.app.Application
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.CustomApplication
-import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.di.module.ActivityModule
-import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.di.module.DatabaseModule
-import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.di.module.NetworkModule
-import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.di.module.RepositoryModule
+import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.di.module.*
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -18,7 +15,8 @@ import javax.inject.Singleton
         ActivityModule::class,
         NetworkModule::class,
         DatabaseModule::class,
-        RepositoryModule::class
+        RepositoryModule::class,
+        UseCaseModule::class
     ]
 )
 interface AppComponent {
