@@ -8,17 +8,19 @@ import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.core.network.Ne
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.local.RepoPersistenceSource
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.model.RepoModel
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.network.ApiService
+import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.db.RepoDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import retrofit2.HttpException
 import javax.inject.Inject
 
-class KotlinRepoRepositoryImpl @Inject constructor (
+class KotlinRepoRepositoryImpl @Inject constructor(
     private val apiService: ApiService,
     private val persistenceSource: RepoPersistenceSource,
     private val networkInfo: NetworkInfo
 ) : KotlinRepoRepository {
 
-    private var lastPage = -1
+    private var isLastPage = false
 
     override suspend fun getPagedStarredKotlinRepos(page: Int): Either<Failure, List<RepoModel>> {
         val cachedRepos = getPagedReposFromDisk(page)
@@ -31,7 +33,7 @@ class KotlinRepoRepositoryImpl @Inject constructor (
                     } else {
                         Either.Left(Failure.NetworkConnection)
                     }
-                } else if (isLastPage(page, cachedRepos.b)) {
+                } else if (isLastPage) {
                     Either.Left(RepoRepositoryFailure.LastPageReached)
                 } else {
                     cachedRepos
@@ -44,7 +46,7 @@ class KotlinRepoRepositoryImpl @Inject constructor (
         return persistenceSource.getPagedRepos(page)
     }
 
-    private fun shouldFetchFromNetwork(data: List<RepoModel>) = data.isEmpty()
+    private fun shouldFetchFromNetwork(data: List<RepoModel>) = !isLastPage && data.isEmpty()
 
     private suspend fun handleNetworkRequest(
         networkRequest: Either<Failure, List<RepoModel>>,
@@ -74,9 +76,12 @@ class KotlinRepoRepositoryImpl @Inject constructor (
                     sort = SORT_PARAM,
                     page = page
                 )
+                isLastPage = (response.items.size/RepoDao.PAGE_SIZE) < 1
                 Either.Right(response.items)
-            } catch (ex: Exception) {
+            } catch (ex: HttpException) {
                 Either.Left(Failure.ServerError)
+            } catch (ex: Exception) {
+                Either.Left(Failure.GenericError)
             }
         }
     }
@@ -86,9 +91,6 @@ class KotlinRepoRepositoryImpl @Inject constructor (
             persistenceSource.insertRepos(repos)
         }
     }
-
-    private fun isLastPage(page: Int, repoList: List<RepoModel>) =
-        page > lastPage && repoList.isEmpty()
 
     companion object {
         private const val QUERY_PARAM = "language:kotlin"

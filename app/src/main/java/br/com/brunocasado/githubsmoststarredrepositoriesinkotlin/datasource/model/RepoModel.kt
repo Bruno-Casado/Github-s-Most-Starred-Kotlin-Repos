@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName
 )
 data class RepoModel(
     @SerializedName("id")
-    val id: String,
+    val id: Int,
     @SerializedName("name")
     val name: String,
     @SerializedName("stargazers_count")
