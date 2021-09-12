@@ -1,6 +1,8 @@
 package br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.di.module
 
+import android.app.Application
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.core.network.NetworkInfo
+import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.core.network.NetworkInfoImpl
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.local.RepoPersistenceSource
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.local.RepoPersistenceSourceImpl
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.network.ApiService
@@ -25,8 +27,8 @@ class RepositoryModule {
     fun provideRepoRepository(
         apiService: ApiService,
         persistenceSource: RepoPersistenceSource,
-        networkInfo: NetworkInfo
+        application: Application
     ): KotlinRepoRepository {
-        return KotlinRepoRepositoryImpl(apiService, persistenceSource, networkInfo)
+        return KotlinRepoRepositoryImpl(apiService, persistenceSource, NetworkInfoImpl(application.applicationContext))
     }
 }

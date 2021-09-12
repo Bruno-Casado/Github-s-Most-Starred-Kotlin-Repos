@@ -11,7 +11,7 @@ abstract class RepoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insert(vararg repo: RepoModel)
 
-    @Query("SELECT * FROM RepoModel LIMIT $PAGE_SIZE*:page-1, $PAGE_SIZE")
+    @Query("SELECT * FROM RepoModel ORDER BY stars DESC LIMIT $PAGE_SIZE*(:page-1), $PAGE_SIZE")
     abstract suspend fun getPagedRepos(page: Int): List<RepoModel>
 
     companion object {
