@@ -1,4 +1,4 @@
-package br.com.brunocasado.githubsmoststarredrepositoriesinkotlin
+package br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.local
 
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.core.exception.Failure
 

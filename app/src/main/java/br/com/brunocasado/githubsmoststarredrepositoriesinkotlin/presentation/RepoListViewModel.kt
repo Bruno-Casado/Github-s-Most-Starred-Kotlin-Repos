@@ -1,4 +1,4 @@
-package br.com.brunocasado.githubsmoststarredrepositoriesinkotlin
+package br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

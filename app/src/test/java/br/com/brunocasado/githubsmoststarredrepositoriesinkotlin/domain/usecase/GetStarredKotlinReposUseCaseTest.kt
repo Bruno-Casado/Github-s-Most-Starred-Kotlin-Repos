@@ -2,7 +2,7 @@ package br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.domain.usecase
 
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.core.Either
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.core.exception.Failure
-import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.repository.KotlinRepoRepository
+import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.domain.repository.KotlinRepoRepository
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.helpers.createRepoModelList
 import io.mockk.coEvery
 import io.mockk.coVerify

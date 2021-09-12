@@ -1,14 +1,10 @@
-package br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.repository
+package br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.domain.repository
 
-import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.RepoPersistenceSourceSuccess
-import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.RepoRepositoryFailure
+import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.local.RepoPersistenceSourceSuccess
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.core.Either
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.core.exception.Failure
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.core.network.NetworkInfo
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.local.RepoPersistenceSource
-import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.model.GithubResponse
-import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.model.OwnerModel
-import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.model.RepoModel
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.network.ApiService
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.helpers.createGithubResponseMock
 import io.mockk.coEvery

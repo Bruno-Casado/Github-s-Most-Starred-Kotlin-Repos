@@ -1,13 +1,12 @@
 package br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.di.module
 
 import android.app.Application
-import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.core.network.NetworkInfo
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.core.network.NetworkInfoImpl
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.local.RepoPersistenceSource
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.local.RepoPersistenceSourceImpl
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.network.ApiService
-import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.repository.KotlinRepoRepository
-import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.repository.KotlinRepoRepositoryImpl
+import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.domain.repository.KotlinRepoRepository
+import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.domain.repository.KotlinRepoRepositoryImpl
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.db.Database
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.db.RepoDao
 import dagger.Module

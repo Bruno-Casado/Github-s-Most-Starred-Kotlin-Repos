@@ -1,6 +1,5 @@
-package br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.repository
+package br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.domain.repository
 
-import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.RepoRepositoryFailure
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.core.Either
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.core.exception.Failure
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.core.exception.Success

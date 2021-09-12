@@ -1,4 +1,4 @@
-package br.com.brunocasado.githubsmoststarredrepositoriesinkotlin
+package br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.presentation
 
 import android.os.Bundle
 import android.view.View
@@ -8,10 +8,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.*
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.core.ViewStatus
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.core.exception.Failure
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.databinding.ActivityMainBinding
+import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.local.RepoPersistenceSourceFailure
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.domain.model.RepoVO
+import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.domain.repository.RepoRepositoryFailure
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 

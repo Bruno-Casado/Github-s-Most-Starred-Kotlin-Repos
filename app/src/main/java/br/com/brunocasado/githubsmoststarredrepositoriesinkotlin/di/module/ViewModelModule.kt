@@ -2,7 +2,7 @@ package br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.di.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.RepoListViewModel
+import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.presentation.RepoListViewModel
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.di.ViewModelFactory
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.di.ViewModelKey
 import dagger.Binds

@@ -1,6 +1,6 @@
 package br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.di.module
 
-import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.MainActivity
+import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.presentation.MainActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
