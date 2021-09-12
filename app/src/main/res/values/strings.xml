@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">GitHub\'s Most Starred Repositories in Kotlin</string>
+    <string name="stars_count">Estrelas: %1$d</string>
+    <string name="forks_count">Forks: %1$d</string>
+    <string name="last_page_reached_error_message">Última página alcançada!</string>
+    <string name="persistence_error_message">Algum erro aconteceu no Banco de Dados. Tente novamente</string>
+    <string name="generic_error_message">Algum coisa deu errado. Tente novamente</string>
+    <string name="network_connection_error_message">Verifique sua conexção com a internet e tente novamente</string>
+    <string name="server_error_message">Deu algum problema com o servidor. Tente novamente mais tarde</string>
 </resources>
