@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.*
-import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.core.ViewStatus
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.core.exception.Failure
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.databinding.ActivityMainBinding
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.local.RepoPersistenceSourceFailure
@@ -61,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                 val totalItemCount = recyclerView.layoutManager?.itemCount
                 if ((totalItemCount == lastVisibleItemPosition + 1) &&
                     (failure != RepoRepositoryFailure.LastPageReached) &&
-                    (viewModel.kotlinReposLiveData.value?.status != ViewStatus.LOADING)
+                    (viewModel.isLoadingLiveData.value == false)
                 ) {
                     viewModel.loadNextPage()
                 }
@@ -71,11 +70,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun initObserver() {
         viewModel.kotlinReposLiveData.observe(this) {
-            it.handleIt(
-                onSuccess = ::handleSuccess,
-                onFailure = ::handleFailure,
-                isLoading = ::handleLoading
-            )
+            handleSuccess(it)
+        }
+        viewModel.errorLiveData.observe(this) {
+            handleFailure(it!!)
+        }
+        viewModel.isLoadingLiveData.observe(this) {
+            handleLoading(it)
         }
     }
 

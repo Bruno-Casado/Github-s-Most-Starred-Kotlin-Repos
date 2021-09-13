@@ -1,4 +1,4 @@
-package br.com.brunocasado.githubsmoststarredrepositoriesinkotlin
+package br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.presentation
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.R
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.databinding.StarredKotlinItemBinding
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.domain.model.RepoVO
 import com.bumptech.glide.Glide

@@ -3,6 +3,8 @@ package br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.helpers
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.model.GithubResponse
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.model.OwnerModel
 import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.datasource.model.RepoModel
+import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.domain.mapper.toViewObject
+import br.com.brunocasado.githubsmoststarredrepositoriesinkotlin.domain.model.RepoVO
 
 fun createGithubResponseMock() = GithubResponse(
     listOf(
@@ -30,3 +32,5 @@ fun createGithubResponseMock() = GithubResponse(
 )
 
 fun createRepoModelList() = createGithubResponseMock().items
+
+fun createRepoVoList() = createRepoModelList().toViewObject()
